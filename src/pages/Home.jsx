@@ -71,7 +71,7 @@ function Home({
           </div>
         </nav>
 
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div className="mb-12">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm mb-5     text-x1 font-bold text-center text-yellow-400">
               Live Market Data
