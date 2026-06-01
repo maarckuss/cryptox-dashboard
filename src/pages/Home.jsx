@@ -23,20 +23,20 @@ function Home({
   return (
     <div className="min-h-screen text-white bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 px-4 md:px-8 py-8">
       <motion.div
-       className="max-w-7x1 mx-auto"
-       initial={{
-        opacity:0,
-        y: 20
-       }}
-       animate={{
-        opacity: 1,
-        y:0
-       }}
-       transition={{
-        duration:0.8,
-        ease: "easeOut"
-       }}
-       >
+        className="max-w-7x1 mx-auto"
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 0.8,
+          ease: "easeOut",
+        }}
+      >
         <nav className="mb-10 sticky top-4 z-50">
           <div className="flex items-center justify-between px-6 py-4 rounded-2x1 bg-white/5 backdrop-blur-1g border border-white/10">
             <div>
@@ -94,7 +94,19 @@ function Home({
 
           <Link
             to="/watchlist"
-            className="bg-yellow-400 text-black px-4 py-2 rounded-1g font-semibold"
+            className="
+  inline-flex
+  items-center
+  px-4 py-2
+  rounded-xl
+  bg-yellow-500/90
+  text-black font-medium text-sm
+  hover:bg-yellow-400
+  transition-all duration-300
+  shadow-md hover:shadow-yellow-500/20
+  w-fit
+  md:w-auto
+"
           >
             Go to watchlist
           </Link>
@@ -105,15 +117,14 @@ function Home({
         <div className="mb-8 rounded-2x1 bg-white/5 backdrop-blur-x1 border border-white/10 px-5 py-4 flex items-center gap-3 focus-within:border-cyan-400 transition-all duration-300">
           <span className="text-slate-400 text-x1">🔍</span>
           <input
-          type="text"
-          placeholder="Search cryptocurrencies..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="bg-transparent outline-none flex-1 text-white placeholder:text-slate-500"
-        />
-
+            type="text"
+            placeholder="Search cryptocurrencies..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="bg-transparent outline-none flex-1 text-white placeholder:text-slate-500"
+          />
         </div>
-        
+
         {error && <p>{error}</p>}
 
         {loading ? (
@@ -155,7 +166,7 @@ function Home({
             </div>
           </>
         )}
-        <Footer/>
+        <Footer />
       </motion.div>
     </div>
   );

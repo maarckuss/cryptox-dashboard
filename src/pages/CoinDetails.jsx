@@ -27,7 +27,7 @@ function CoinDetails() {
 
   return (
     <div className="min-h-screen text-white bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 px-4 md:px-8 py-8">
-      <div className="max-w-7x1 mx-auto">
+      <div className="min-h-screen px-4 md:px-8 py-6 text-white max-w-7xl mx-auto">
         {loading ? (
           <p className="text-center">Loading...</p>
         ) : (
@@ -46,15 +46,15 @@ function CoinDetails() {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6  mb-10">
               <div className="flex items-center gap-5">
-              <img
-                src={coin.image.large}
-                alt={coin.name}
-                className="w-20 h-20"
-              />
-              <div>
-                <h1 className="text-4x1 font-bold">{coin.name}</h1>
-                <p className="text-slate-400">Rank #{coin.market_cap_rank}</p>
-              </div>
+                <img
+                  src={coin.image.large}
+                  alt={coin.name}
+                  className="w-20 h-20"
+                />
+                <div>
+                  <h1 className="text-4x1 font-bold">{coin.name}</h1>
+                  <p className="text-slate-400">Rank #{coin.market_cap_rank}</p>
+                </div>
               </div>
 
               {/*Price*/}
@@ -65,51 +65,51 @@ function CoinDetails() {
                   ${coin.market_data.current_price.usd.toLocaleString()}
                 </h2>
               </div>
+            </div>
+
+            {/*Stats*/}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="bg-white/5 rounded-2x1 p-5 border border-white/10">
+                <p className="text-slate-400 text-sm">Market Cap</p>
+
+                <h3 className="font-bold mt-2">
+                  ${coin.market_data.market_cap.usd.toLocaleString()}
+                </h3>
               </div>
 
-              {/*Stats*/}
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-10">
-                <div className="bg-white/5 rounded-2x1 p-5 border border-white/10">
-                  <p className="text-slate-400 text-sm">Market Cap</p>
-
-                  <h3 className="font-bold mt-2">${coin.market_data.market_cap.usd.toLocaleString()}</h3>
-                </div>
-
-                <div className="bg-white/5 rounded-2x1 p-5 border border-white/10">
-                  <p className="text-slate-400 text-sm">24h Volume</p>
-                  <h3 className="font-bold">
-                    ${coin.market_data.total_volume.usd.toLocaleString()}
-                  </h3>
-                </div>
-
-                <div className="bg-white/5 rounded-2x1 p-5 border border-white/10">
-                  <p className="text-slate-400 text-sm">Circulating Supply</p>
-                  <h3 className="font-bold">
-                    {coin.market_data.circulating_supply.toLocaleString()}
-                  </h3>
-                </div>
-
-                <div className="bg-white/5 rounded-2x1 p-5 border border-white/10">
-                  <p className="text-slate-400 text-sm">24h High</p>
-                  <h3 className="font-bold">
-                    {coin.market_data.high_24h.usd.toLocaleString()}
-                  </h3>
-                </div>
+              <div className="bg-white/5 rounded-2x1 p-5 border border-white/10">
+                <p className="text-slate-400 text-sm">24h Volume</p>
+                <h3 className="font-bold">
+                  ${coin.market_data.total_volume.usd.toLocaleString()}
+                </h3>
               </div>
 
-              {/*Chart*/}
+              <div className="bg-white/5 rounded-2x1 p-5 border border-white/10">
+                <p className="text-slate-400 text-sm">Circulating Supply</p>
+                <h3 className="font-bold">
+                  {coin.market_data.circulating_supply.toLocaleString()}
+                </h3>
+              </div>
 
-              <div className="mt-8">
-                <h2 className="text-2x1 font-bold mb-2">Price Trend</h2>
-                <p className="text-slate-400 mb-6">Historical market movement</p>
+              <div className="bg-white/5 rounded-2x1 p-5 border border-white/10">
+                <p className="text-slate-400 text-sm">24h High</p>
+                <h3 className="font-bold">
+                  {coin.market_data.high_24h.usd.toLocaleString()}
+                </h3>
+              </div>
+            </div>
+
+            {/*Chart*/}
+
+            <div className="mt-6 w-full overflow-hidden rounded-2xl">
+              <div className="h-[280px] md:h-[400px]">
                 <PriceChart selectedCoin={id} />
               </div>
-              
             </div>
-          
+          </div>
         )}
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );
